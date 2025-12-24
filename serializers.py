@@ -76,8 +76,8 @@ class TransactionSerializer(serializers.Serializer):
         amount = validated_data['amount']
         txid = validated_data['txid']
 
-        if hasattr(self, 'idempotency_result'):
-            return UserTransaction.objects.get(txid=txid)
+        # if hasattr(self, 'idempotency_result'):
+        #     return UserTransaction.objects.get(txid=txid)
 
         try:
             with transaction.atomic():
